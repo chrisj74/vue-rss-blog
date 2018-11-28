@@ -7,7 +7,13 @@ export function addPosts (state, payload) {
     const arrays = [], size = state.maxCols;
     while (posts.length > 0)
         arrays.push(posts.splice(0, state.maxCols));
-    state.posts = payload;
+    const mergedPosts = [...state.posts, ...payload];
+    mergedPosts.sort(function(a,b){
+        // Turn your strings into dates, and then subtract them
+        // to get a value that is either negative, positive, or zero.
+        return new Date(b.pubDate) - new Date(a.pubDate);
+    });
+    state.posts = mergedPosts;
     state.postRows = arrays
 }
 
@@ -50,5 +56,6 @@ export function setCurrentPost (state, payload) {
 }
 
 export function clearCurrentPost(state) {
+    console.log('clear');
     state.currentPost = null;
 }

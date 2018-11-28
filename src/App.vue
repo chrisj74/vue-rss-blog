@@ -3,8 +3,9 @@
     <transition-group name="fade">
       <app-grid v-if="layoutStyle == 'grid' && !currentPost" key="grid"></app-grid>
       <app-slider v-if="layoutStyle == 'slider' && !currentPost" key="slider"></app-slider>
-      <app-post v-if="postStyle == 'inline' && currentPost" key="post"></app-post>
+      <app-post v-if="postStyle === 'inline' && currentPost" key="post"></app-post>
     </transition-group>
+    <app-post v-if="postStyle === 'modal'"></app-post>
   </div>
 </template>
 

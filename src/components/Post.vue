@@ -1,7 +1,7 @@
 <template>
-    <portal name="blog" to="destination" target-el="#rtb-modal" :disabled="postStyle == 'inline'">
+    <portal name="blog" to="destination" target-el="#rtb-modal" :disabled="postStyle === 'inline'">
         <transition name="fade">
-            <div id="post-container" v-if="getCurrentPost" :class="postStyle">
+            <div id="post-container" v-if="getCurrentPost" :class="`rtb-${postStyle}`">
                 <div id="postTop"></div>
                 <div class="close" @click="closePost">
                     <span>X</span>
@@ -67,7 +67,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
 #post-container {
-    &.modal {
+    &.rtb-modal {
         position: fixed;
         top: 0;
         left: 0;
@@ -118,7 +118,7 @@ export default {
             }
         }
     }
-    &.inline {
+    &.rtb-inline {
         position: relative;
         .close {
             display: none;

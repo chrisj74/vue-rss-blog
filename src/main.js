@@ -1,3 +1,8 @@
+/** Create portal target */
+const portal = document.createElement('div');
+portal.id = "rtb-modal";
+document.getElementsByTagName('body')[0].appendChild(portal);
+
 import Vue from 'vue'
 import App from './App.vue'
 import store from './store/'

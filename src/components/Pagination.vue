@@ -1,9 +1,12 @@
 <template>
-    <div class="pagination-container" v-if="posts.length > 1" :class="postStyle">
+    <div class="pagination-container" v-if="posts.length > 1" :class="`rtb-${postStyle}`">
         <div class="container">
-            <a :href="posts[(getCurrentPostIndex - 1)].link" @click.prevent="showPost(posts[(getCurrentPostIndex - 1)].link)" v-if="getCurrentPostIndex > 0" class="pager newer">Newer</a>
-            <a href="#" @click.prevent="closePost" v-if="postStyle == 'inline'">See all</a>
-            <a :href="posts[(getCurrentPostIndex + 1)].link" @click.prevent="showPost(posts[(getCurrentPostIndex + 1)].link)" v-if="(posts.length -1) > getCurrentPostIndex" class="pager older">Older</a>
+            <div class="source-link">
+                <a :href="currentPost.link" target="_blank">View the original post</a>
+            </div>
+            <a :href="posts[(getCurrentPostIndex - 1)].link" @click.prevent="showPost(posts[(getCurrentPostIndex - 1)].link)" v-if="getCurrentPostIndex > 0" class="pager newer">Prev</a>
+            <a href="#" @click.prevent="closePost" v-if="postStyle == 'inline'">See all posts</a>
+            <a :href="posts[(getCurrentPostIndex + 1)].link" @click.prevent="showPost(posts[(getCurrentPostIndex + 1)].link)" v-if="(posts.length -1) > getCurrentPostIndex" class="pager older">Next</a>
         </div>
     </div>
 </template>
@@ -53,13 +56,19 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .pagination-container {
-    &.modal {
+    &.rtb-modal {
         position: fixed;
         bottom: 0;
         width: 100%;
     }
     .container {
         text-align: center;
+        .source-link {
+            text-align: right;
+            a {
+                color: #000;
+            }
+        }
         .pager {
             padding: 5px;
             margin: 5px 10px;

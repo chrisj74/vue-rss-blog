@@ -93,7 +93,7 @@ export default {
     content: '';
     display: block;
     position: relative;
-    margin-top: 66%;
+    margin-top: 60%;
     width: 100%;
     z-index: 1;
   }
