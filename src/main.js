@@ -27,14 +27,6 @@ Vue.use(VueScrollTo, {
 Vue.config.productionTip = false
 App.store = store
 
-/*Vue.customElement('retainable-blog', App, {
-    props: [
-        'rss',
-        'max-cols',
-        'layout'
-    ]
-})
-*/
 new Vue({
   el: '#retainable',
   store,
