@@ -26,7 +26,7 @@ Options are passed in as data attributes on the entry point div
 
 ## Example:
 
-    <link href="/retainable.js" rel="preload" as="script">
+    <link href="/retainable.css">
 
 ...
 
@@ -34,7 +34,10 @@ Options are passed in as data attributes on the entry point div
              data-rss="https://medium.com/feed/the-antidote"
              data-maxcols="3"
              data-layout="slider"
-             data-poststyle="inline"></div>
+             data-poststyle="inline"
+             data-readmore="Read the rest"
+             data-buttonclass="btn btn-primary"
+             data-offset="-100"></div>
 
 ...
 
@@ -60,4 +63,7 @@ This is the way your posts are shown in summary.
 |data-maxcols|2|Optional|must be an interger of 1, 2, 3, 4, 6 or 12 and controls the number of cols display in the index view|
 |data-layout|grid|Optional|Styles the index of available posts, can be set to "grid" or "slider"|
 |data-poststyle|modal|Optional|The style of posts when you click on an excerpt in the index can be set to one of: "modal", "inline" or "external", external opens the post's source with a target of _blank|
+|data-buttonclass|  |Optional|Space separated list of classes to apply to the read more button|
+|data-readmore|Read more|Optional|Text to show on the read more button|
+|data-offset|0|Optional|If you have a fixed header then you can set a negative offset integer for scrolling when the posts are shown inline e.g. -100 (converts to pixels)|
 

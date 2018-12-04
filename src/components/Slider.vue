@@ -1,28 +1,47 @@
 <template>
-  <carousel :per-page="parseInt(maxCols)" >
+  <carousel :per-page="parseInt(maxCols)">
     <slide v-for="(post, index) in posts" :key="post.guid" :data-index="index">
       <div class="slider-post">
         <div class="post-date">{{ post.pubDate | formatPostDate }}</div>
-        <div><a :href="post.link" @click.prevent="showPost($event, post.link)" target="_blank" :style="'background-image: url(' + post.thumbnail + ');'" class="post-image"></a></div>
-        <div><a :href="post.link" @click.prevent="showPost($event, post.link)" target="_blank"><h2>{{ post.title }}</h2></a></div>
+        <div>
+          <a
+            :href="post.link"
+            @click.prevent="showPost($event, post.link)"
+            target="_blank"
+            :style="'background-image: url(' + post.thumbnail + ');'"
+            class="post-image"
+          ></a>
+        </div>
+        <div>
+          <a :href="post.link" @click.prevent="showPost($event, post.link)" target="_blank">
+            <h2>{{ post.title }}</h2>
+          </a>
+        </div>
         <div class="author mt-2">Author: {{ post.author }}</div>
-        <div class="read-more"><a :href="post.link" @click="showPost($event, post.link)" target="_blank">Read more</a></div>
+        <div class="read-more">
+          <a
+            :href="post.link"
+            @click="showPost($event, post.link)"
+            target="_blank"
+            :class="buttonClass"
+          >{{ readMore }}</a>
+        </div>
       </div>
     </slide>
   </carousel>
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
-var dateFormat = require('dateformat');
-import { Carousel, Slide } from 'vue-carousel';
+import { mapState, mapGetters } from "vuex";
+var dateFormat = require("dateformat");
+import { Carousel, Slide } from "vue-carousel";
 
 export default {
-  name: 'appSlider',
-  data: function(){
+  name: "appSlider",
+  data: function() {
     return {
       view: null
-    }
+    };
   },
   components: {
     Carousel,
@@ -30,42 +49,40 @@ export default {
   },
   computed: {
     ...mapState([
-      'posts',
-      'maxCols',
-      'layout',
-      'postRows',
-      'colClass',
-      'currentPost',
-      'postStyle'
+      "posts",
+      "maxCols",
+      "layout",
+      "postRows",
+      "colClass",
+      "currentPost",
+      "postStyle",
+      "readMore",
+      "buttonClass"
     ]),
-    ...mapGetters([
-      'getCurrentPost'
-    ])
-
+    ...mapGetters(["getCurrentPost"])
   },
   filters: {
     formatPostDate: function(value) {
       if (value) {
-          return dateFormat(value, 'dd mmm');
+        return dateFormat(value, "dd mmm");
       }
-    },
-
+    }
   },
   methods: {
-    formatPostDescription: (value) => {
-      return value.replace(/<img[^>]*>/g,"");
+    formatPostDescription: value => {
+      return value.replace(/<img[^>]*>/g, "");
     },
     showPost(event, link) {
-      if (this.postStyle === 'external') {
+      if (this.postStyle === "external") {
         /** Pass through the link */
         return true;
       } else {
         event.preventDefault();
-        this.$store.dispatch('setCurrentPost', link)
+        this.$store.dispatch("setCurrentPost", link);
       }
     }
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -74,7 +91,7 @@ export default {
   padding: 10px;
   position: relative;
 }
-.post-date{
+.post-date {
   position: absolute;
   top: 18px;
   left: 18px;
@@ -90,7 +107,7 @@ export default {
   overflow: auto;
   display: block;
   &:after {
-    content: '';
+    content: "";
     display: block;
     position: relative;
     margin-top: 60%;
@@ -104,19 +121,6 @@ export default {
   overflow: hidden;
   line-height: 1.5em;
   position: relative;
-  &:after {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    height: 1.5em;
-    background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.02) 1%, rgba(255,255,255,0.85) 48%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,0.02) 1%,rgba(255,255,255,0.85) 48%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,0.02) 1%,rgba(255,255,255,0.85) 48%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
-  }
 }
 .read-more {
   text-align: right;

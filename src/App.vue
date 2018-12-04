@@ -1,5 +1,6 @@
 <template>
   <div id="rtb">
+    <div id="rtb-anchor"></div>
     <transition-group name="fade">
       <app-grid v-if="layoutStyle == 'grid' && !currentPost" key="grid"></app-grid>
       <app-slider v-if="layoutStyle == 'slider' && !currentPost" key="slider"></app-slider>
@@ -20,7 +21,10 @@ export default {
     'rss',
     'maxcols',
     'layout',
-    'poststyle'
+    'poststyle',
+    'buttonclass',
+    'readmore',
+    'offset'
   ],
   components: {
     appGrid,
@@ -36,6 +40,9 @@ export default {
     this.$store.commit('setLayout', this.layout)
     this.$store.commit('setPostStyle', this.poststyle)
     this.$store.dispatch('getPosts', this.rss)
+    this.$store.commit('setButtonClass', this.buttonclass),
+    this.$store.commit('setReadMore', this.readmore),
+    this.$store.commit('setOffset', this.offset)
   },
   computed: {
     ...mapState([
@@ -55,12 +62,14 @@ export default {
 </script>
 
 <style lang="scss">
+/* Transition animations */
 .fade-enter-active, .fade-leave-active {
-  transition: opacity 1s;
+  transition: opacity 2s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
 }
+/* Bootstrap utilities */
 @-ms-viewport {
     width: device-width
 }
@@ -68,7 +77,7 @@ export default {
 html {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    -ms-overflow-style: scrollbar
+    -ms-overflow-style: scrollbar;
 }
 
 *,
@@ -83,6 +92,7 @@ $container-max-widths: (
   lg: 700px,
   xl: 800px
 );
+
 #rtb, #rtb-modal {
   @import '../node_modules/bootstrap/scss/bootstrap-grid.scss';
   @import '../node_modules/bootstrap/scss/utilities/_spacing.scss';
@@ -94,6 +104,4 @@ $container-max-widths: (
 #rtb {
   position: relative;
 }
-
-
 </style>

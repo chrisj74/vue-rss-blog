@@ -7,15 +7,25 @@
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>medium-embed-3</title>
   </head>
-  <body>
+  <body style="margin-top: 100px;">
     <noscript>
       <strong>We're sorry but medium-embed-3 doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
+    <div style="position: fixed; top: 0; width: 100%; height: 100px; background: #fff;z-index: 100;">header</div>
+    <h1>Test header</h1>
+    <p>Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc. Fusce commodo aliquam arcu. Morbi mollis tellus ac sapien. Suspendisse faucibus, nunc et pellentesque egestas, lacus ante convallis tellus, vitae iaculis lacus elit id tortor. Donec sodales sagittis magna.
+
+      Etiam ultricies nisi vel augue. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Curabitur ligula sapien, tincidunt non, euismod vitae, posuere imperdiet, leo. Suspendisse potenti. Phasellus dolor.
+
+      Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id purus. In dui magna, posuere eget, vestibulum et, tempor auctor, justo. Aenean imperdiet. Proin pretium, leo ac pellentesque mollis, felis nunc ultrices eros, sed gravida augue augue mollis justo. Curabitur vestibulum aliquam leo.</p>
     <div id="retainable"
          data-rss="https://medium.com/feed/the-antidote, https://medium.com/feed/the-mission"
          data-maxcols="3"
-         data-layout="slider"
-         data-poststyle="inline"></div>
+         data-layout="grid"
+         data-poststyle="inline"
+         data-readmore="Read the rest"
+         data-buttonclass="btn btn-primary"
+         data-offset="-100"></div>
     <!-- built files will be auto injected -->
 
   </body>
