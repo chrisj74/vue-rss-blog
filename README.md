@@ -30,7 +30,7 @@ Options are passed in as data attributes on the entry point div
 
 ...
 
-    <div id="retainable"
+    <div id="etainable-rss-embed"
              data-rss="https://medium.com/feed/the-antidote"
              data-maxcols="3"
              data-layout="slider"
@@ -53,12 +53,16 @@ This is the way your posts are shown in summary.
 
 **Slider view** will display a carousel of posts with the same details as grid. It uses maxcols to define how many posts to show at one time.
 ### Post view
+**Inline view** will show the full feed inline and replace the index view, there is pagination and the option to return to the index.
 
+**Modal view** will display the full article in a full screen modal, there is pagination and an x to close the modal.
+
+**External view** wil open a new tab and with the source link.
 
 ##  Options
 | Option | Default | Reqiuired | Details
 |---|--|--|------|
-|id|n/a|Yes|You must set the value of your entry point's id to "retainable".|
+|id|n/a|Yes|You must set the value of your entry point's id to "retainable-rss-embed".|
 |data-rss|n/a|Yes|You must provide at least one valid url to the RSS endpoint, multiple rss feeds can be combined with a comma separated list|
 |data-maxcols|2|Optional|must be an interger of 1, 2, 3, 4, 6 or 12 and controls the number of cols display in the index view|
 |data-layout|grid|Optional|Styles the index of available posts, can be set to "grid" or "slider"|
