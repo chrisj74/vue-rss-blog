@@ -1,14 +1,14 @@
 <template>
   <div class="row">
     <div v-for="(post) in posts" :key="post.guid" :class="colClass">
-      <div class="post-date">{{ post.pubDate | formatPostDate }}</div>
+      <div class="post-date" v-if="post.pubDate">{{ post.pubDate | formatPostDate }}</div>
       <div>
         <a
           :href="post.link"
           @click.prevent="showPost($event, post.link)"
           target="_blank"
           :style="'background-image: url(' + post.thumbnail + ');'"
-          class="post-image"
+          :class="{'post-image' : post.thumbnail, 'no-image' : !post.thumbnail}"
         ></a>
       </div>
       <div>
@@ -59,7 +59,8 @@ export default {
   filters: {
     formatPostDate: function(value) {
       if (value) {
-        return dateFormat(value, "dd mmm");
+        var newDate = new Date(value.replace(' ', 'T'));
+        return dateFormat(newDate, "dd mmm");
       }
     }
   },
@@ -109,6 +110,10 @@ export default {
     width: 100%;
     z-index: 1;
   }
+}
+.no-image {
+  height: 30px;
+  display: block;
 }
 .rtb-col {
   margin-bottom: 20px;

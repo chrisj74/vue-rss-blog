@@ -13,7 +13,7 @@ export function getCurrentPost(state) {
     if (result) {
       html += `<h1>${result.title}</h1>`;
       html += `<p class="post-author">${result.author} - ${dateFormat(
-        result.pubDate,
+        result.pubDate.replace(' ', 'T'),
         "dd mmm"
       )}</p>`;
       html += `<div>${result.description}</div>`;

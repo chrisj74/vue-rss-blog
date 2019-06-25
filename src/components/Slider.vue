@@ -64,7 +64,8 @@ export default {
   filters: {
     formatPostDate: function(value) {
       if (value) {
-        return dateFormat(value, "dd mmm");
+        var newDate = new Date(value.replace(' ', 'T'));
+        return dateFormat(newDate, "dd mmm");
       }
     }
   },
