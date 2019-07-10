@@ -1,5 +1,5 @@
 <template>
-  <carousel :per-page="parseInt(maxCols)">
+  <carousel :perPageCustom="[[480, 2], [768, 3], [1024, parseInt(maxCols)]]">
     <slide v-for="(post, index) in posts" :key="post.guid" :data-index="index">
       <div class="slider-post">
         <div class="post-date">{{ post.pubDate | formatPostDate }}</div>
