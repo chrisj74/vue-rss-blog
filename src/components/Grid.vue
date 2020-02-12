@@ -21,7 +21,7 @@
       <div class="read-more">
         <a
           :href="post.link"
-          @click.prevent="showPost($event, post.link)"
+          @click="showPost($event, post.link)"
           target="_blank"
           :class="buttonClass"
         >{{readMore}}</a>
@@ -70,6 +70,7 @@ export default {
     },
     showPost(event, link) {
       if (this.postStyle === "external") {
+        console.log('external');
         /** Pass through the link */
         return true;
       } else {

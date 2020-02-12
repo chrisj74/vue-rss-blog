@@ -17,7 +17,7 @@
         >Next</a>
       </div>
       <div class="source-link col-sm-3">
-        <a :href="currentPost.link" target="_blank">View the original post</a>
+        <a :href="currentPost" target="_blank">View the original post</a>
       </div>
     </div>
   </div>

@@ -6,7 +6,7 @@
         <div>
           <a
             :href="post.link"
-            @click.prevent="showPost($event, post.link)"
+            @click="showPost($event, post.link)"
             target="_blank"
             :style="'background-image: url(' + post.thumbnail + ');'"
             class="post-image"
