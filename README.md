@@ -3,7 +3,7 @@ An embeddable to pull an RSS feed into your website. I built this to embed a Med
 
 It uses the https://api.rss2json.com/v1/api.json service to retrieve and convert the RSS to JSON.
 
-## THIS PROJECT IS IN ALPHA
+## THIS PROJECT IS IN BETA
 
 ## Docs
 For more docs and examples head over to https://www.retainable.io/embed-your-medium-blog
