@@ -33,7 +33,7 @@ Options are passed in as data attributes on the entry point div
 
 ...
 
-    <div id="etainable-rss-embed"
+    <div id="retainable-rss-embed"
              data-rss="https://medium.com/feed/retainable,
              https://medium.com/feed/js-dojo,                https://medium.com/feed/vue-mastery"
              data-maxcols="3"
