@@ -13,7 +13,7 @@
           ></a>
         </div>
         <div>
-          <a :href="post.link" @click.prevent="showPost($event, post.link)" target="_blank">
+          <a :href="post.link" @click="showPost($event, post.link)" target="_blank">
             <h2>{{ post.title }}</h2>
           </a>
         </div>

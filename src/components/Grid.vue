@@ -5,14 +5,14 @@
       <div>
         <a
           :href="post.link"
-          @click.prevent="showPost($event, post.link)"
+          @click="showPost($event, post.link)"
           target="_blank"
           :style="'background-image: url(' + post.thumbnail + ');'"
           :class="{'post-image' : post.thumbnail, 'no-image' : !post.thumbnail}"
         ></a>
       </div>
       <div>
-        <a :href="post.link" @click.prevent="showPost($event, post.link)" target="_blank">
+        <a :href="post.link" @click="showPost($event, post.link)" target="_blank">
           <h2>{{ post.title }}</h2>
         </a>
       </div>
