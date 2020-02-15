@@ -34,8 +34,7 @@ Options are passed in as data attributes on the entry point div
 ...
 
     <div id="retainable-rss-embed"
-             data-rss="https://medium.com/feed/retainable,
-             https://medium.com/feed/js-dojo,                https://medium.com/feed/vue-mastery"
+             data-rss="https://medium.com/feed/retainable 3,https://medium.com/feed/js-dojo 2,https://medium.com/feed/vue-mastery"
              data-maxcols="3"
              data-layout="slider"
              data-poststyle="inline"
@@ -67,7 +66,7 @@ This is the way your posts are shown in summary.
 | Option | Default | Reqiuired | Details
 |---|--|--|------|
 |id|n/a|Yes|You must set the value of your entry point's id to "retainable-rss-embed".|
-|data-rss|n/a|Yes|You must provide at least one valid url to the RSS endpoint, multiple rss feeds can be combined with a comma separated list|
+|data-rss|n/a|Yes|You must provide at least one valid url to the RSS endpoint, multiple rss feeds can be combined with a comma separated list. You can also choose how many posts fetch for each endpoint just adding the value after the feed url separated by a space: if no value is given all the posts will be fetched.|
 |data-maxcols|2|Optional|must be an interger of 1, 2, 3, 4, 6 or 12 and controls the number of cols display in the index view|
 |data-layout|grid|Optional|Styles the index of available posts, can be set to "grid" or "slider"|
 |data-poststyle|modal|Optional|The style of posts when you click on an excerpt in the index can be set to one of: "modal", "inline" or "external", external opens the post's source with a target of _blank|
