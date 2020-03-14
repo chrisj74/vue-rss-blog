@@ -8,9 +8,17 @@ export function getPosts({ commit }, rss) {
   const rssArray = rss.split(",");
   const rssUrlsWithOptionsArray = rssArray.map(rss => {
     const rssUrlWithOptions = rss.split("|");
+    const rssItemsCountParam = parseInt(rssUrlWithOptions[1]);
+    //check if rssItemsCountParam is a valid number
+    let rssItemsCount;
+    if(Number.isInteger(rssItemsCountParam)) {
+      rssItemsCount = rssItemsCountParam
+    } else {
+      rssItemsCount = null;
+    }
     return {
       rssUrl: rssUrlWithOptions[0],
-      rssItemsCount: rssUrlWithOptions[1]
+      rssItemsCount: rssItemsCount
     }
   });
 
@@ -22,7 +30,13 @@ export function getPosts({ commit }, rss) {
       .get("https://api.rss2json.com/v1/api.json", { params: data })
       .then(function(response) {
         // handle success
-        const posts = response.data.items.slice(0,rssUrlWithOptions.rssItemsCount);
+        let posts;
+        //take only needed items if rssItemsCount is valid
+        if(rssUrlWithOptions.rssItemsCount) {
+          posts = response.data.items.slice(0,rssUrlWithOptions.rssItemsCount);
+        } else {
+          posts = response.data.items;
+        }
         commit("addPosts", posts);
       })
       .catch(function(error) {
