@@ -7,7 +7,7 @@ export function getPosts({ commit }, rss) {
 
   const rssArray = rss.split(",");
   const rssUrlsWithOptionsArray = rssArray.map(rss => {
-    const rssUrlWithOptions = rss.split(" ");
+    const rssUrlWithOptions = rss.split("|");
     return {
       rssUrl: rssUrlWithOptions[0],
       rssItemsCount: rssUrlWithOptions[1]
