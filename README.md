@@ -6,7 +6,7 @@ It uses the https://api.rss2json.com/v1/api.json service to retrieve and convert
 ## THIS PROJECT IS IN BETA
 
 ## Docs
-For more docs and examples head over to https://www.retainable.io/embed-your-medium-blog
+For more docs and examples head over to https://www.twilik.com/embed-your-medium-blog
 
 ## Installation
 Clone repo
