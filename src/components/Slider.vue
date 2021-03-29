@@ -92,40 +92,40 @@ export default {
   .slider-post {
     padding: 10px;
     position: relative;
-  }
-  .post-date {
-    position: absolute;
-    top: 18px;
-    left: 18px;
-    background-color: #fff;
-    padding: 5px;
-    color: #000;
-  }
-  .post-image {
-    width: 100%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    overflow: auto;
-    display: block;
-    &:after {
-      content: "";
-      display: block;
-      position: relative;
-      margin-top: 60%;
-      width: 100%;
-      z-index: 1;
+    .post-date {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      background-color: #fff;
+      padding: 5px;
+      color: #000;
     }
-  }
-  .excerpt {
-    max-height: 4.5em;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    line-height: 1.5em;
-    position: relative;
-  }
-  .read-more {
-    text-align: right;
-  }
+    .post-image {
+      width: 100%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      overflow: auto;
+      display: block;
+      &:after {
+        content: "";
+        display: block;
+        position: relative;
+        margin-top: 60%;
+        width: 100%;
+        z-index: 1;
+      }
+    }
+    .excerpt {
+      max-height: 4.5em;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      line-height: 1.5em;
+      position: relative;
+    }
+    .read-more {
+      text-align: right;
+    }
+  }  
 }
 </style>

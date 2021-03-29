@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="row rtb-row">
     <div v-for="(post) in posts" :key="post.guid" :class="colClass">
       <div class="post-date" v-if="post.pubDate">{{ post.pubDate | formatPostDate }}</div>
       <div>
@@ -89,46 +89,49 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
 #rtb {
-  .post-date {
-    position: absolute;
-    top: 3px;
-    left: 18px;
-    background-color: #fff;
-    padding: 5px;
-    color: #000;
-  }
-  .post-image {
-    width: 100%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    overflow: auto;
-    display: block;
-    &:after {
-      content: "";
-      display: block;
-      position: relative;
-      margin-top: 60%;
+  .rtb-row {
+    .post-date {
+      position: absolute;
+      top: 3px;
+      left: 18px;
+      background-color: #fff;
+      padding: 5px;
+      color: #000;
+    }
+    .post-image {
       width: 100%;
-      z-index: 1;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      overflow: auto;
+      display: block;
+      &:after {
+        content: "";
+        display: block;
+        position: relative;
+        margin-top: 60%;
+        width: 100%;
+        z-index: 1;
+      }
+    }
+    .no-image {
+      height: 30px;
+      display: block;
+    }
+    .rtb-col {
+      margin-bottom: 20px;
+    }
+    .excerpt {
+      max-height: 15em;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      line-height: 1.5em;
+      position: relative;
+    }
+    .read-more {
+      text-align: right;
     }
   }
-  .no-image {
-    height: 30px;
-    display: block;
-  }
-  .rtb-col {
-    margin-bottom: 20px;
-  }
-  .excerpt {
-    max-height: 15em;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    line-height: 1.5em;
-    position: relative;
-  }
-  .read-more {
-    text-align: right;
-  }
+  
 }
 </style>
