@@ -16,7 +16,11 @@ export function getCurrentPost(state) {
         result.pubDate.replace(' ', 'T'),
         "dd mmm"
       )}</p>`;
-      html += `<div>${result.description}</div>`;
+      if (result.content) {
+        html += `<div>${result.content}</div>`;
+      } else {
+        html += `<div>${result.description}</div>`;
+      }      
     }
     return html;
   } else {
