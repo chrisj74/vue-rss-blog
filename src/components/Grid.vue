@@ -87,46 +87,48 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-.post-date {
-  position: absolute;
-  top: 3px;
-  left: 18px;
-  background-color: #fff;
-  padding: 5px;
-  color: #000;
-}
-.post-image {
-  width: 100%;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  overflow: auto;
-  display: block;
-  &:after {
-    content: "";
-    display: block;
-    position: relative;
-    margin-top: 60%;
-    width: 100%;
-    z-index: 1;
+<style lang="scss">
+#rtb {
+  .post-date {
+    position: absolute;
+    top: 3px;
+    left: 18px;
+    background-color: #fff;
+    padding: 5px;
+    color: #000;
   }
-}
-.no-image {
-  height: 30px;
-  display: block;
-}
-.rtb-col {
-  margin-bottom: 20px;
-}
-.excerpt {
-  max-height: 15em;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  line-height: 1.5em;
-  position: relative;
-}
-.read-more {
-  text-align: right;
+  .post-image {
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    overflow: auto;
+    display: block;
+    &:after {
+      content: "";
+      display: block;
+      position: relative;
+      margin-top: 60%;
+      width: 100%;
+      z-index: 1;
+    }
+  }
+  .no-image {
+    height: 30px;
+    display: block;
+  }
+  .rtb-col {
+    margin-bottom: 20px;
+  }
+  .excerpt {
+    max-height: 15em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    line-height: 1.5em;
+    position: relative;
+  }
+  .read-more {
+    text-align: right;
+  }
 }
 </style>
