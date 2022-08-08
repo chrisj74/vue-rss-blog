@@ -1,6 +1,8 @@
 .DS_Store
 node_modules
 /dist
+/demo/retainable.css
+/demo/retainable.js
 
 # local env files
 .env.local

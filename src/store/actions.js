@@ -17,7 +17,7 @@ export function getPosts({ commit }, rss) {
       rssItemsCount = null;
     }
     return {
-      rssUrl: rssUrlWithOptions[0],
+      rssUrl: rssUrlWithOptions[0] ? rssUrlWithOptions[0].trim() : rssUrlWithOptions[0],
       rssItemsCount: rssItemsCount
     }
   });

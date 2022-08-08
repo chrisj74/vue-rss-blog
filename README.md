@@ -46,7 +46,8 @@ Options are passed in as data attributes on the entry point div
 
     <script src="/retainable.js"></script>
 
-Alternatively there is an example of a widget style script in the demo folder, that injects the CSS & Script tags into the page (you still need to add the entry point div.
+Alternatively there is an example of a widget style script in the demo folder, that injects the CSS & Script tags into the page (you still need to add the entry point div. To run the demo, first build the application with `npm run build`.
+
 ## Views
 The widget has two distinct views
 ### Index view
