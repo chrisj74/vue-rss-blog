@@ -39,11 +39,15 @@ export function getPosts({ commit }, rss) {
         } else {
           posts = response.data.items;
         }
-        posts.map(i => ({
-          ...i,
-          thumbnail: getThumbnailImageFromRawContent(i.content)
-        }))
-        commit("addPosts", posts);
+
+        const postsClone =  posts.map(i => {
+          return {
+            ...i,
+            thumbnail: getThumbnailImageFromRawContent(i.content)
+          }
+        })
+
+        commit("addPosts", postsClone);
       })
       .catch(function(error) {
         // handle error
