@@ -3,6 +3,8 @@ export function someAction (context) {
 }
 */
 import axios from "axios";
+import getThumbnailImageFromRawContent from "../utils/getThumbnailImageFromRawContent";
+
 export function getPosts({ commit }, rss) {
 
   const rssArray = rss.split(",");
@@ -37,6 +39,10 @@ export function getPosts({ commit }, rss) {
         } else {
           posts = response.data.items;
         }
+        posts.map(i => ({
+          ...i,
+          thumbnail: getThumbnailImageFromRawContent(i.content)
+        }))
         commit("addPosts", posts);
       })
       .catch(function(error) {
